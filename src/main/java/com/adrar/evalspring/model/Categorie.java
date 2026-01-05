@@ -2,8 +2,11 @@ package com.adrar.evalspring.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
+import lombok.Data;
 
 @Entity
+@Table(name="categorie")
+@Data
 public class Categorie {
 
     @Id

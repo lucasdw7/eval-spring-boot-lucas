@@ -22,21 +22,21 @@ public class ProduitService {
         return produitRepository.save(produit);
     }
     // Récupérer la liste de tous les produits
-    public List<Produit> getAllDrink()
+    public List<Produit> getAllProduct()
     {
         if (produitRepository.count() == 0) {
-            throw new ProductNotFoundException("La liste des boissons est vide");
+            throw new ProductNotFoundException("La liste des produits est vide");
         }
         return (List<Produit>) produitRepository.findAll();
     }
 
     // Récupérer un produit par ID
-    public Optional<Produit> getDrinkById(Integer id) {
+    public Optional<Produit> getProductById(Integer id) {
         return Optional
                 .of(produitRepository
                         .findById(id)
                         .orElseThrow(
-                                () -> new ProductNotFoundException("La boisson avec id :" + id + " n'existe pas")
+                                () -> new ProductNotFoundException("Le produit avec id :" + id + " n'existe pas")
                         )
                 );
 
