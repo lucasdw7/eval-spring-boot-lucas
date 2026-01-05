@@ -24,4 +24,10 @@ public class Produit {
     @Positive(message = "Le prix doit être supérieur à zéro")
     @Column(nullable = false)
     private Double prix;
+
+    // Relation ManyToOne
+    @ManyToOne
+    @JoinColumn(name = "categorie_id", nullable = false)
+    @NotNull(message = "Le produit doit être associé à une catégorie")
+    private Categorie categorie;
 }
