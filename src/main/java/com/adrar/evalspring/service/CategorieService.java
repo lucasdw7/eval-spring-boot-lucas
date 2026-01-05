@@ -1,6 +1,6 @@
 package com.adrar.evalspring.service;
 
-import com.adrar.evalspring.exception.CategorieExistsExecption;
+import com.adrar.evalspring.exception.CategorieExistsException;
 import com.adrar.evalspring.exception.CategorieNotFoundException;
 import com.adrar.evalspring.repository.CategorieRepository;
 import org.springframework.stereotype.Service;
@@ -18,7 +18,7 @@ public class CategorieService {
     // Ajouter une categorie
     public Categorie addCategorie(Categorie categorie) {
         if (categorieRepository.existsByLibele(categorie.getLibele())) {
-            throw new CategorieExistsExecption("La categorie " + categorie.getLibele() + " existe déjà");
+            throw new CategorieExistsException("La categorie " + categorie.getLibele() + " existe déjà");
         }
         return categorieRepository.save(categorie);
     }
